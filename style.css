@@ -57,7 +57,46 @@
       font-weight: 600;
     }
 
-    .btn:hover {
-      background-color: #b45309;
-    }
+
+/* Style the dropdown container for location */
+.location-dropdown .dropdown-menu {
+  width: 90vw;            /* Fits nicely on mobile screens */
+  max-width: 500px;       /* Caps the size on desktop */
+  border-radius: 16px;    /* Smooth modern corners */
+  background-color: #ffffff;
+  margin-top: 8px !important;
+}
+
+/* Responsive wrapper for the Google Map */
+.location-dropdown .map-container {
+  position: relative;
+  width: 100%;
+  height: 350px;          /* Adjust height to your liking */
+  border-radius: 12px;    /* Rounds the map corners */
+  overflow: hidden;       /* Clips the iframe to the rounded corners */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* Make the iframe fill the responsive wrapper */
+.location-dropdown .map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Subtle hover effect on the main trigger button */
+.location-dropdown > .btn {
+  border-radius: 10px;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.location-dropdown > .btn:hover {
+  background-color: #f8fafc;
+  transform: translateY(-1px);
+}
 
