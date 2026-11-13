@@ -8,7 +8,7 @@
 
     .jumbotron {
       /* Adds a subtle dark tint so white text pops, paired with your image */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('thanksgiving-bg.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('thanksgiving-bg.jpg');
       background-size: cover;
       background-position: right center; /* Keeps the food visible on smaller screens */
       background-repeat: no-repeat;
@@ -16,12 +16,13 @@
       padding: 5rem 3rem;
       margin: 0;
       border-radius: 0; /* Flat edges for full-width top banner */
-      text-align: left; /* Places text neatly over the empty wood on the left */
+      text-align: center; /* Centers all text inside the jumbotron */
       color: #ffffff;
     }
 
     .jumbotron-content {
-      max-width: 550px; /* Keeps text from overlapping the food on the right */
+      max-width: 550px;
+      margin: 0 auto; /* Centers the content block horizontally */
     }
 
     .jumbotron h1 {
