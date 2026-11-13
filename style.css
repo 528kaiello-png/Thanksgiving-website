@@ -1,34 +1,62 @@
-body {
- text-align: center;
-background-color: orange;
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: orange;
+      text-align: center;
+    }
 
-}
-.hero {
-  min-height: 650px;
-  background: url('360_F_225888620_WYUxWd3tUwkkbsGYDJJ5rAv2eTbTfed2.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
+    .jumbotron {
+      /* Adds a subtle dark tint so white text pops, paired with your image */
+      background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('thanksgiving-bg.jpg');
+      background-size: cover;
+      background-position: right center; /* Keeps the food visible on smaller screens */
+      background-repeat: no-repeat;
+      
+      padding: 5rem 3rem;
+      margin: 0;
+      border-radius: 0; /* Flat edges for full-width top banner */
+      text-align: left; /* Places text neatly over the empty wood on the left */
+      color: #ffffff;
+    }
 
-.hero-content {
-  max-width: 900px;
-  padding: 20px;
-}
+    .jumbotron-content {
+      max-width: 550px; /* Keeps text from overlapping the food on the right */
+    }
 
-.hero h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
-  color: black;
-  line-height: 1.4;
-  text-shadow: 0 0 10px yellow, 0 0 20px brown, 0 0 40px red,(255, 213, 79, .5);
-}
+    .jumbotron h1 {
+      font-size: 2.75rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
-.hero p {
-  margin-top: 30px;
-  font-size: 1.3rem;
-  color: #f5f5f5;
-}
+    .jumbotron p {
+      font-size: 1.2rem;
+      color: #f3f4f6;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .jumbotron hr {
+      border: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      margin: 1.5rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #d97706; /* Warm autumn amber to match your theme */
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background-color: #b45309;
+    }
+
