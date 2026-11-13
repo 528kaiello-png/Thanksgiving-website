@@ -6,28 +6,30 @@
       text-align: center;
     }
 
-    .jumbotron {
-      /* Adds a subtle dark tint so white text pops, paired with your image */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('360_F_225888620_WYUxWd3tUwkkbsGYDJJ5rAv2eTbTfed2.jpg');
-      background-size: cover;
-      background-position: right center; /* Keeps the food visible on smaller screens */
-      background-repeat: no-repeat;
-
-        position: sticky;
-        top: 0;
-       z-index: 1000;
+  .jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('360_F_225888620_WYUxWd3tUwkkbsGYDJJ5rAv2eTbTfed2.jpg');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  
+  
+  padding: 3rem 2rem; 
+  margin: 0;
+  border-radius: 0;
+  text-align: center;
+  color: #ffffff;
+}
 
       
       padding: 5rem 3rem;
       margin: 0;
-      border-radius: 0; /* Flat edges for full-width top banner */
-      text-align: center; /* Centers all text inside the jumbotron */
+      text-align: center;
       color: #ffffff;
     }
 
     .jumbotron-content {
       max-width: 550px;
-      margin: 0 auto; /* Centers the content block horizontally */
+      margin: 0 auto; 
     }
 
     .jumbotron h1 {
@@ -54,7 +56,7 @@
 
     .btn {
       display: inline-block;
-      background-color: #d97706; /* Warm autumn amber to match your theme */
+      background-color: #d97706; 
       color: #ffffff;
       text-decoration: none;
       padding: 0.75rem 1.5rem;
@@ -63,16 +65,14 @@
     }
 
 
-/* Style the dropdown container for location */
+
 .location-dropdown .dropdown-menu {
-  width: 90vw;            /* Fits nicely on mobile screens */
-  max-width: 500px;       /* Caps the size on desktop */
-  border-radius: 16px;    /* Smooth modern corners */
+  width: 90vw;          
   background-color: #ffffff;
   margin-top: 8px !important;
 }
 
-/* Responsive wrapper for the Google Map */
+
 .location-dropdown .map-container {
   position: relative;
   width: 100%;
@@ -82,7 +82,7 @@
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
-/* Make the iframe fill the responsive wrapper */
+
 .location-dropdown .map-container iframe {
   position: absolute;
   top: 0;
@@ -92,7 +92,7 @@
   border: 0;
 }
 
-/* Subtle hover effect on the main trigger button */
+
 .location-dropdown > .btn {
   border-radius: 10px;
   font-weight: 500;
@@ -105,3 +105,73 @@
   transform: translateY(-1px);
 }
 
+
+    
+.table-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 24px auto;
+  overflow-x: auto;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  text-align: left;
+  color: #1f2937;
+}
+
+.styled-table caption {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 16px 18px 12px;
+  text-align: left;
+  color: #111827;
+  background-color: #ffffff;
+}
+
+.styled-table thead tr {
+  background-color: #d97706;
+  color: #ffffff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.styled-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #fffbeb;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #fef3c7;
+}
+
+.styled-table tbody tr:last-of-type td {
+  border-bottom: none;
+}
+
+.styled-table tfoot tr {
+  font-weight: 700;
+  background-color: #f9fafb;
+  color: #111827;
+  border-top: 2px solid #d97706;
+}
+
+.text-right {
+  text-align: right;
+}
