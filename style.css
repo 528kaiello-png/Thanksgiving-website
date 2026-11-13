@@ -1,3 +1,34 @@
 body {
-  background-color: orange;
+ text-align: center;
+background-color: orange;
+
+}
+.hero {
+  min-height: 650px;
+  background: url('360_F_225888620_WYUxWd3tUwkkbsGYDJJ5rAv2eTbTfed2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 900px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: black;
+  line-height: 1.4;
+  text-shadow: 0 0 10px yellow, 0 0 20px brown, 0 0 40px red,(255, 213, 79, .5);
+}
+
+.hero p {
+  margin-top: 30px;
+  font-size: 1.3rem;
+  color: #f5f5f5;
 }
