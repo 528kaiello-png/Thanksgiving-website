@@ -171,6 +171,56 @@
   text-align: right;
 }
 
+/* accordion */
+/* Alternating pattern: #d97706 (odd items) & Muted Gold (even items) */
+.custom-accordion .accordion-item:nth-child(odd) .accordion-button {
+  background-color: #d97706;
+  color: #ffffff;
+}
+
+.custom-accordion .accordion-item:nth-child(even) .accordion-button {
+  background-color: #d97706; /* Muted gold */
+  color: #ffffff;
+}
+
+.custom-accordion .accordion-item:nth-child(odd) .accordion-button:not(.collapsed) {
+  background-color: #d97706;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.custom-accordion .accordion-item:nth-child(even) .accordion-button:not(.collapsed) {
+  background-color: #d97706; /* Slightly deeper muted gold when open */
+  color: #ffffff;
+  box-shadow: none;
+}
+
+
+.custom-accordion .accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.custom-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(217, 119, 6, 0.35);
+}
+
+/* Subtle matching border for each accordion item */
+.custom-accordion .accordion-item:nth-child(odd) {
+  border-color: #d97706;
+}
+
+.custom-accordion .accordion-item:nth-child(even) {
+  border-color: #d97706;
+}
+/* Accordion */
+
+
+
+
+
+
+
+
 /* Footer */
 /* Smooth scrolling for the Back to Top button */
 html {
