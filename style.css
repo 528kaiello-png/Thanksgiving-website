@@ -8,7 +8,7 @@
 
     .jumbotron {
       /* Adds a subtle dark tint so white text pops, paired with your image */
-      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('thanksgiving-bg.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('360_F_225888620_WYUxWd3tUwkkbsGYDJJ5rAv2eTbTfed2.jpg');
       background-size: cover;
       background-position: right center; /* Keeps the food visible on smaller screens */
       background-repeat: no-repeat;
