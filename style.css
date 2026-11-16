@@ -322,6 +322,23 @@
 }
 
 
+.flyer-box {
+  width: 100%;            
+  max-width: 450px;        
+  aspect-ratio: 3 / 4; 
+  margin: 0 auto;   
+  border: 2px solid #d95b00;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #d95b00; 
+}
+
+.flyer-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     
+}
 
 
 
