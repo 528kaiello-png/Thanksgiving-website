@@ -3,35 +3,635 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A brief description of your page">
-  <title>Harvest Table (Donations)</title>
-   <link rel="icon" type="image/png" href="12329466.png">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Donate to the Harvest Table Donation Jar - Harvest Hands Food Bank of Monmouth">
+  <title>Harvest Table (Donation Jar)</title>
+  <link rel="icon" type="image/png" href="images-removebg-preview (2).png">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f1ea;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HERO HEADER */
+    .hero-header {
+      /* Replace 'thanksgiving-bg.jpg' with your actual header image filename if you have one */
+      background: linear-gradient(rgba(38, 23, 14, 0.85), rgba(38, 23, 14, 0.9)),
+                  url('thanksgiving-bg.jpg') center/cover;
+      background-color: #362214;
+      color: white;
+      text-align: center;
+      padding: 25px 20px 40px;
+    }
+
+    .top-nav {
+      text-align: left;
+      max-width: 1000px;
+      margin: 0 auto 15px;
+    }
+
+    .top-nav a {
+      color: #f5a600;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .top-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hosted-by {
+      font-size: 0.95rem;
+      color: #e0d6cc;
+    }
+
+    .divider {
+      width: 60%;
+      max-width: 500px;
+      margin: 18px auto;
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .event-date {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    /* GOLDEN BANNER */
+    .gold-banner {
+      background-color: #f5a600;
+      color: #1e160d;
+      text-align: center;
+      padding: 18px 20px;
+    }
+
+    .gold-banner h2 {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    /* MAIN CONTAINER & TABLE */
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      margin: 25px auto;
+      padding: 0 15px;
+      flex: 1;
+    }
+
+    .section-bar {
+      background-color: #d47300;
+      color: white;
+      padding: 14px 20px;
+      font-weight: bold;
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      align-items: center;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .donation-table {
+      border: 1px solid #e0d5c1;
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+      overflow: hidden;
+    }
+
+    .donation-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #eee6d5;
+      gap: 10px;
+    }
+
+    .donation-row:last-child {
+      border-bottom: none;
+    }
+
+    .row-white {
+      background-color: #ffffff;
+    }
+
+    .row-cream {
+      background-color: #fdf8e8;
+    }
+
+    .amount-text {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #362214;
+    }
+
+    .meals-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #2e7d32;
+    }
+
+    .custom-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: bold;
+      font-size: 1.15rem;
+    }
+
+    .custom-input-wrap input {
+      width: 90px;
+      padding: 7px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .orange-btn {
+      background-color: #d47300;
+      color: white;
+      border: 1px solid #a85b00;
+      padding: 10px 22px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .orange-btn:hover {
+      background-color: #b56200;
+    }
+
+    .full-width {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px 24px;
+      font-size: 1rem;
+    }
+
+    /* IMPACT CALLOUT BOX */
+    .impact-note {
+      background-color: #fff;
+      border: 1px solid #e0d5c1;
+      border-left: 6px solid #f5a600;
+      padding: 18px 20px;
+      margin-top: 20px;
+      border-radius: 4px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #362214;
+      text-align: center;
+    }
+
+    /* POPUP MODAL STYLES */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 15px;
+    }
+
+    .modal-box {
+      background: #fff;
+      width: 100%;
+      max-width: 450px;
+      border-radius: 8px;
+      padding: 25px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      border-top: 6px solid #d47300;
+      animation: popIn 0.2s ease-out;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
+
+    .modal-header {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 12px;
+      margin-bottom: 15px;
+    }
+
+    .modal-header h3 {
+      color: #362214;
+      margin-bottom: 4px;
+    }
+
+    .modal-meals-badge {
+      display: inline-block;
+      background-color: #fdf8e8;
+      border: 1px solid #f5a600;
+      color: #5c4314;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+
+    form label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    form input[type="text"],
+    form input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 5px;
+    }
+
+    .method-option {
+      background: #fdf8e8;
+      border: 1px solid #e0d5c1;
+      padding: 8px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+    }
+
+    .method-option:hover {
+      border-color: #d47300;
+    }
+
+    .method-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pay-icon {
+      height: 22px;
+      width: auto;
+      max-width: 45px;
+      object-fit: contain;
+    }
+
+    .card-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .card-row div {
+      flex: 1;
+    }
+
+    .wallet-box {
+      background: #fdf8e8;
+      border: 1px solid #f5a600;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #5c4314;
+    }
+
+    /* CONFIRMATION SCREEN */
+    .success-icon {
+      width: 55px;
+      height: 55px;
+      background-color: #2e7d32;
+      color: white;
+      font-size: 2rem;
+      line-height: 55px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+    }
+
+    .conf-code {
+      display: inline-block;
+      background: #fdf8e8;
+      border: 1px dashed #d47300;
+      padding: 4px 10px;
+      font-weight: bold;
+      color: #d47300;
+      margin: 8px 0;
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to My Website</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+  <!-- HERO HEADER -->
+  <header class="hero-header">
+    <nav class="top-nav">
+      <a href="index.html">← Back to Event Info</a>
     </nav>
+    <h1>Harvest Table</h1>
+    <p class="subtitle">A community Thanksgiving dinner</p>
+    <p class="hosted-by">Hosted By: Marlboro Neighbors Helping Neighbors</p>
+    <hr class="divider">
+    <p class="event-date">Saturday, November 28th, 2026 | 3:00 PM – 7:00 PM</p>
   </header>
 
-  <main>
-    <section>
-      <h2>Main Content</h2>
-      <p>Start building your page here.</p>
-    </section>
+  <!-- GOLDEN BANNER -->
+  <section class="gold-banner">
+    <h2>Donation JAR</h2>
+    <p>Pick an amount to donate and help feed local families in Monmouth County.</p>
+  </section>
+
+  <!-- DONATION TABLE -->
+  <main class="container">
+    <div class="section-bar">
+      <span>Amount</span>
+      <span>Meals Donated</span>
+      <span style="min-width: 95px; text-align: center;">Action</span>
+    </div>
+
+    <div class="donation-table">
+      <!-- $10 -->
+      <div class="donation-row row-white">
+        <span class="amount-text">$10</span>
+        <span class="meals-text">20 meals</span>
+        <button type="button" class="orange-btn" onclick="openDonation(10, 20)">Donate</button>
+      </div>
+
+      <!-- $25 -->
+      <div class="donation-row row-cream">
+        <span class="amount-text">$25</span>
+        <span class="meals-text">50 meals</span>
+        <button type="button" class="orange-btn" onclick="openDonation(25, 50)">Donate</button>
+      </div>
+
+      <!-- $50 -->
+      <div class="donation-row row-white">
+        <span class="amount-text">$50</span>
+        <span class="meals-text">100 meals</span>
+        <button type="button" class="orange-btn" onclick="openDonation(50, 100)">Donate</button>
+      </div>
+
+      <!-- $100 -->
+      <div class="donation-row row-cream">
+        <span class="amount-text">$100</span>
+        <span class="meals-text">200 meals</span>
+        <button type="button" class="orange-btn" onclick="openDonation(100, 200)">Donate</button>
+      </div>
+
+      <!-- Optional Custom Amount -->
+      <div class="donation-row row-white">
+        <div class="custom-input-wrap">
+          <span>$</span>
+          <input type="number" id="customAmountInput" placeholder="Other" min="1" oninput="updateCustomMeals()">
+        </div>
+        <span class="meals-text" id="customMealsPreview">2 meals per $1</span>
+        <button type="button" class="orange-btn" onclick="openCustomDonation()">Donate</button>
+      </div>
+    </div>
+
+    <!-- FOOD BANK CALLOUT -->
+    <div class="impact-note">
+      💛 Every dollar from tickets and donations goes directly to the Harvest Hands Food Bank of Monmouth.
+    </div>
   </main>
 
+  <!-- FAKE PAYMENT POPUP MODAL -->
+  <div id="paymentModal" class="modal-overlay">
+    <div class="modal-box">
+      <span class="close-btn" onclick="closeDonation()">&times;</span>
+      
+      <!-- Payment Form -->
+      <div id="payment-form-section">
+        <div class="modal-header">
+          <h3>Complete Your Donation</h3>
+          <p>Donation Amount: <strong id="modal-amount">$0</strong></p>
+          <span class="modal-meals-badge" id="modal-meals">0 meals provided</span>
+        </div>
+
+        <form id="donationForm" onsubmit="processFakeDonation(event)">
+          <label>Full Name (or "Anonymous")</label>
+          <input type="text" id="donorName" placeholder="Jane Doe" required>
+
+          <label>Email Address (for donation receipt)</label>
+          <input type="email" id="donorEmail" placeholder="jane@example.com" required>
+
+          <label>Payment Method</label>
+          <div class="payment-methods">
+            <!-- Replace the src="..." filenames below with your own logo files -->
+            <label class="method-option">
+              <span class="method-left">
+                <input type="radio" name="payMethod" value="Visa" checked onchange="toggleCardFields()"> Visa
+              </span>
+              <img src="visa-logo.png" alt="Visa" class="pay-icon">
+            </label>
+
+            <label class="method-option">
+              <span class="method-left">
+                <input type="radio" name="payMethod" value="Mastercard" onchange="toggleCardFields()"> Mastercard
+              </span>
+              <img src="mastercard-logo.png" alt="Mastercard" class="pay-icon">
+            </label>
+
+            <label class="method-option">
+              <span class="method-left">
+                <input type="radio" name="payMethod" value="PayPal" onchange="toggleCardFields()"> PayPal
+              </span>
+              <img src="paypal-logo.png" alt="PayPal" class="pay-icon">
+            </label>
+
+            <label class="method-option">
+              <span class="method-left">
+                <input type="radio" name="payMethod" value="Apple Pay" onchange="toggleCardFields()"> Apple Pay
+              </span>
+              <img src="applepay-logo.png" alt="Apple Pay" class="pay-icon">
+            </label>
+          </div>
+
+          <!-- Credit Card Inputs -->
+          <div id="card-details">
+            <label>Card Number</label>
+            <input type="text" id="cardNumber" placeholder="4532 0151 1283 0366" maxlength="19" required>
+
+            <div class="card-row">
+              <div>
+                <label>Expiration</label>
+                <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5" required>
+              </div>
+              <div>
+                <label>CVV</label>
+                <input type="text" id="cardCvv" placeholder="123" maxlength="4" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- Digital Wallet Message (Shown for PayPal / Apple Pay) -->
+          <div id="digital-wallet-msg" style="display:none;" class="wallet-box">
+            You will be connected to your selected digital wallet upon clicking Complete Donation.
+          </div>
+
+          <button type="submit" class="orange-btn full-width">Complete Donation</button>
+        </form>
+      </div>
+
+      <!-- Confirmation Receipt -->
+      <div id="confirmation-section" style="display:none; text-align:center;">
+        <div class="success-icon">✓</div>
+        <h3>Thank You for Your Generosity!</h3>
+        <p>Donor: <strong id="confirm-name"></strong></p>
+        <p>Contribution: <strong id="confirm-summary"></strong></p>
+        <p>Payment Method: <strong id="confirm-method"></strong></p>
+        <p>Receipt Code: <span class="conf-code" id="confirm-code"></span></p>
+        <p class="small-note">💛 100% of your gift goes directly to the Harvest Hands Food Bank of Monmouth.</p>
+        <button type="button" class="orange-btn" onclick="resetAndClose()">Done</button>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>&copy; 2026 My Website</p>
+    <p>&copy; 2026 Marlboro Neighbors Helping Neighbors</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    let currentAmount = 0;
+    let currentMeals = 0;
+
+    function updateCustomMeals() {
+      const val = parseFloat(document.getElementById('customAmountInput').value);
+      const preview = document.getElementById('customMealsPreview');
+      if (val && val > 0) {
+        const meals = Math.floor(val * 2);
+        preview.textContent = `${meals} meals`;
+      } else {
+        preview.textContent = '2 meals per $1';
+      }
+    }
+
+    function openCustomDonation() {
+      const val = parseFloat(document.getElementById('customAmountInput').value);
+      if (!val || val <= 0) {
+        alert("Please enter a valid donation amount.");
+        return;
+      }
+      openDonation(val, Math.floor(val * 2));
+    }
+
+    function openDonation(amount, meals) {
+      currentAmount = amount;
+      currentMeals = meals;
+
+      document.getElementById('modal-amount').textContent = `$${amount}`;
+      document.getElementById('modal-meals').textContent = `${meals} meals donated`;
+      document.getElementById('paymentModal').style.display = 'flex';
+    }
+
+    function closeDonation() {
+      document.getElementById('paymentModal').style.display = 'none';
+    }
+
+    function toggleCardFields() {
+      const selectedMethod = document.querySelector('input[name="payMethod"]:checked').value;
+      const cardDetails = document.getElementById('card-details');
+      const walletMsg = document.getElementById('digital-wallet-msg');
+      const cardInputs = cardDetails.querySelectorAll('input');
+
+      if (selectedMethod === 'PayPal' || selectedMethod === 'Apple Pay') {
+        cardDetails.style.display = 'none';
+        walletMsg.style.display = 'block';
+        cardInputs.forEach(input => input.required = false);
+      } else {
+        cardDetails.style.display = 'block';
+        walletMsg.style.display = 'none';
+        cardInputs.forEach(input => input.required = true);
+      }
+    }
+
+    function processFakeDonation(event) {
+      event.preventDefault();
+
+      const donorName = document.getElementById('donorName').value;
+      const selectedMethod = document.querySelector('input[name="payMethod"]:checked').value;
+      const randomCode = 'DN-' + Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('confirm-name').textContent = donorName;
+      document.getElementById('confirm-summary').textContent = `$${currentAmount} (${currentMeals} meals)`;
+      document.getElementById('confirm-method').textContent = selectedMethod;
+      document.getElementById('confirm-code').textContent = randomCode;
+
+      document.getElementById('payment-form-section').style.display = 'none';
+      document.getElementById('confirmation-section').style.display = 'block';
+    }
+
+    function resetAndClose() {
+      closeDonation();
+      document.getElementById('donationForm').reset();
+      document.getElementById('customAmountInput').value = '';
+      document.getElementById('customMealsPreview').textContent = '2 meals per $1';
+      toggleCardFields();
+      document.getElementById('payment-form-section').style.display = 'block';
+      document.getElementById('confirmation-section').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
