@@ -215,7 +215,19 @@
 /* Accordion */
 
 
-
+.buyticketsbtn {
+ display: inline-block;
+  background-color: #d97706;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.80rem;
+  padding: 50px;
+  width: 500px;
+  border-radius: 10px;
+  margin-bottom: 1.75rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
 
 
 
